@@ -11,5 +11,3 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
   "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 )
-
-testOptions += Tests.Argument(TestFrameworks.JUnit, "-v")
