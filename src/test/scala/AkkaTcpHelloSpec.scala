@@ -21,10 +21,10 @@ class AkkaTcpHelloSpec(_system: ActorSystem)
   }
 
   "the client handler" should "repeat what the client says" in {
-    val greeter = TestActorRef(Props[SimplisticHandler])
+    val handler = TestActorRef(Props[SimplisticHandler])
 
     within(500.milliseconds) {
-      greeter ! Received(ByteString("hello"))
+      handler ! Received(ByteString("hello"))
       expectMsg(Write(ByteString("> hello")))
     }
   }
