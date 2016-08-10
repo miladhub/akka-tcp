@@ -1,5 +1,5 @@
 import org.scalatest.{BeforeAndAfterAll, FlatSpecLike, Matchers}
-import akka.actor.{Actor, ActorSystem, Props}
+import akka.actor.{ActorSystem, Props}
 import akka.io.Tcp.{Received, Write}
 import akka.testkit.{ImplicitSender, TestActorRef, TestKit}
 import akka.util.ByteString
