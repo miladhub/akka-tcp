@@ -33,7 +33,12 @@ class SimplisticHandler extends Actor {
   import Tcp._
   def receive = {
     case Received(data) =>
-      sender() ! Write(ByteString("> " + data.decodeString("UTF-8")))
+      val command = data.decodeString("UTF-8")
+      if (command.contains("bye")) {
+        sender() ! Write(ByteString("> bye!"))
+        sender() ! Close
+      } else
+        sender() ! Write(ByteString("> " + command))
     case PeerClosed    =>
       println("client disconnected")
       context stop self
